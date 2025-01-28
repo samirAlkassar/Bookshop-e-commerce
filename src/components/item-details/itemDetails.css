@@ -394,20 +394,37 @@ div.overview-container{
     padding: 1.5rem;
     gap: 0.5rem;
     color: var(--darksubtitle);
-    margin:1rem 0;
+    margin:1.5rem 0;
 }
 
 div.overview-container h1.overview-header{
     border-bottom: 1px solid var(--subtitle);
     color: var(--darksubtitle);
     padding:1.5rem 0;
+    margin-bottom: 1rem;
 }
 
 div.overview-container div.overview-wrapper{
     display: flex;
 }
+div.overview-container div.overview-wrapper div.overview-list h4{
+    margin-bottom: 1rem;
+    color: var(--darksubtitle);
+    opacity: 0.9;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
 div.overview-container div.overview-wrapper div.overview-list{
     width: 50%;
+}
+div.overview-container div.overview-wrapper div.overview-list ul{
+    margin-left: 1rem;
+}
+div.overview-container div.overview-wrapper div.overview-list li{
+    padding:0.2rem 0;
+    color: var(--darksubtitle);
+    opacity: 0.8;
+    font-size: 0.9rem;
 }
 div.overview-container div.overview-wrapper div.overview-table{
     width: 50%;
@@ -417,15 +434,20 @@ div.overview-container div.overview-wrapper div.overview-table{
 div.overview-wrapper div.overview-table table{
     border-collapse: collapse;
     width: 100%;
+   
 }
 div.overview-wrapper div.overview-table table tr{
     height: 30px;
-    padding: 1;
+
 }
 div.overview-wrapper div.overview-table table tr:nth-child(even){
-        background-color: #dddddd;
+        background-color: #f0f4fd;
 }
 div.overview-wrapper div.overview-table table th{
     text-align: left;
     font-weight:500;
+    padding: 0.5rem;    
+    font-size: 0.9rem;
+    color: var(--darksubtitle);
+    opacity: 0.7;
 }

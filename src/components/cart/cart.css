@@ -82,12 +82,12 @@ div.cartItem div.middle-wrapper h4.item-title{
     margin-bottom: 1.2rem;
     font-weight: 550;
 }
-div.cartItem div.middle-wrapper p.delevery-time{
+div.cartItem div.middle-wrapper p.delivery-time{
     font-size:0.9rem;
     font-weight:bold;
-    color: #047c04;
     margin-bottom: 0.4rem;
     opacity: 0.8;
+    color: #047c04;
 }
 div.cartItem div.middle-wrapper p.soldby{
     color: var(--darksubtitle);
@@ -99,13 +99,14 @@ div.cartItem div.middle-wrapper p.soldby span{
     font-weight: 500;
     font-style: italic;
 }
-div.cartItem div.middle-wrapper p.fast-delevery{
+div.cartItem div.middle-wrapper p.fast-delivery{
     background-color: antiquewhite;
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
     opacity: 0.95;
     padding: 0.2rem;
     border-radius: 4px;
+    color: var(--darksubtitle);
 }
 div.cartItem div.middle-wrapper p.return-policy{
     color: var(--darksubtitle);
