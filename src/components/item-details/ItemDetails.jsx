@@ -4,20 +4,65 @@ import {Link, useAsyncError} from "react-router-dom"
 import Filter from "../ui-elements/Filter"
 import Avatar from "../../assets/avatar.jpg"
 import Samir from "../../assets/samir.jpeg"
+import { enhancedItems } from "../../constants/items.js";
+import { useWishlistContext } from "../../context/WishlistContext.jsx";
 
 const ItemDetails = () => {
+    const { addToCart, removeFromCart, isInCart ,addToFavorites,removeFromFavorites,isFavorite,clickedItem } = useWishlistContext();
+    const currentItem = enhancedItems.find(item => item.id == clickedItem);
+    console.log(currentItem, clickedItem)
+    const {id, image, title, description, category, price, rating} = currentItem
+    const favorite = isFavorite(id); //return true if in the favorites ,otherwise false
+    const incart = isInCart(id); //return true if in the cart ,otherwise false
+
+      
+    
+    
+      
+      const toggleFavorite = () => {
+        if (favorite) {
+          removeFromFavorites(id);
+        } else {
+          addToFavorites({
+            id,
+            image,
+            title,
+            description,
+            category,
+            price,
+            rating,
+          });
+        }
+      };
+    
+      const toggleCart = () => {
+        if (incart) {
+          removeFromCart(id);
+        } else {
+          addToCart({
+            id,
+            image,
+            title,
+            description,
+            category,
+            price,
+            rating,
+          });
+        }
+      };
+
     return (
         <section className="item-details">
             <div className="box-container">
                 <div className="sub-header">
                     <p><Link to="/"><a href="#">Home</a></Link>
                     <i className="fa-solid fa-chevron-right"></i>
-                    <a href="#">Product Name</a>
+                    <a href="#">{currentItem.title}</a>
                 </p>
                 </div>
                 <div className="top-section">
-                    <LeftSection />
-                    <MiddleSection />
+                    <LeftSection currentItem={currentItem} favorite={favorite} incart={incart} toggleFavorite={toggleFavorite} toggleCart={toggleCart}/>
+                    <MiddleSection currentItem={currentItem}/>
                     <RightSection />
                 </div>
                 <div className="overview">
@@ -35,7 +80,7 @@ const ItemDetails = () => {
 };
 
 
-function LeftSection(){
+function LeftSection({currentItem,toggleFavorite,toggleCart,favorite, incart}){
     return (
         <div className="show-item-container">
             <div className="top-wrapper">
@@ -52,7 +97,7 @@ function LeftSection(){
                     <img src="https://f.nooncdn.com/p/pnsku/N70031501V/45/_/1703140267/74a70ced-c724-43d2-9c04-2e427c9f4989.jpg?format=avif&width=240" alt="" /> */}
                 </div>
                 <div className="main-image">
-                    <img src="https://f.nooncdn.com/p/pnsku/N70031501V/45/_/1709822664/ac09b153-6a69-47f5-9b21-842cd119900b.jpg?format=avif&width=240" alt="" />
+                    <img src={currentItem.image} alt={currentItem.tilte} />
                 </div>
             </div>
             <div className="bottom-wrapper">
@@ -61,23 +106,23 @@ function LeftSection(){
                     <option value="1">2</option>
                     <option value="1">3</option>
                 </select>
-                <button className='add-btn'>Add To Cart</button>
-                <button className='favorite-btn'><i className="fa-solid fa-heart"></i></button>
+                <button style={{background:incart? "#28A745":"#0056B3"}} onClick={toggleCart} className='add-btn'>Add To Cart</button>
+                <button  onClick={toggleFavorite} className='favorite-btn'><i className={favorite ? "fa-solid fa-heart" : "fa-regular fa-heart"}></i></button>
             </div>
         </div>
     )
 }
-function MiddleSection(){
+function MiddleSection({currentItem}){
     return (
         <div className="item-info-container">
             <div className="top-header">
                 <p className='best-seller'><span>best seller</span> in Books <i class="fa-solid fa-chevron-right"></i></p>
                 <p className='incart'><i class="fa-solid fa-cart-shopping"></i> in Your Cart</p>
             </div>
-            <h1>TItle</h1>
-            <h5>Description</h5>
+            <h1>{currentItem.title}</h1>
+            <h5>{currentItem.description}</h5>
             <p>was: <del>EGP 8888.00</del></p>
-            <p>Now: <b>EGP 8888.00</b></p>
+            <p>Now: <b>EGP {currentItem.price}</b></p>
             <p>Saving: EGP 3066.00 <span>34% Off</span></p> 
             <p className='express'>Express</p>
             <div className="value-wrapper">

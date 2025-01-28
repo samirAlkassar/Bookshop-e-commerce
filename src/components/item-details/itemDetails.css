@@ -20,7 +20,7 @@ section.item-details div.top-section{
     padding: 0.2rem;
 }
 section.item-details div.top-section i{
-    color:#767676 !important;
+    color:#767676;
 }
 /* top section */
 div.show-item-container{
@@ -111,7 +111,9 @@ div.bottom-wrapper button.favorite-btn{
     border-radius: 6px;
     padding: 0.8rem;
 }
-
+.bottom-wrapper i.fa-solid{
+    color: red !important;
+}
 /* middle section */
 /* <div className="item-info-container">
 <div className="top-header">
@@ -216,6 +218,9 @@ div.item-info-container div.value-wrapper{
     gap: 0.1rem;
     margin-top: 1.5rem;
     margin-bottom: 3rem;
+}
+div.item-info-container div.value-wrapper i{
+    color: gray !important;
 }
 div.item-info-container div.value-wrapper div.card{
     width: 100%;
@@ -636,6 +641,7 @@ div.comment{
     position: relative;
     margin-top: 0.8rem;
 }
+
 div.comment p{
     display: -webkit-box; /* Enables the flexbox layout for text */
     -webkit-line-clamp: 3; /* Limits text to 3 lines */
@@ -651,7 +657,7 @@ div.comment p{
 }
 div.comment a{
     position: absolute;
-    bottom: 10px;
+    bottom: 12px;
     right: 10px;
 } 
 

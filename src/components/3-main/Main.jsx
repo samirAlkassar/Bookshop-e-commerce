@@ -1,12 +1,11 @@
 import React from "react";
-import { useState } from "react";
+import { useState,createContext } from "react";
 import "./main.css";
 import { mainPageLinks } from "../../constants/constants.js";
 import { enhancedItems } from "../../constants/items.js";
 import ItemCard from "../ItemCard/ItemCard.jsx";
 import Filter from "../ui-elements/Filter.jsx"
-
-
+import { useWishlistContext } from "../../context/WishlistContext.jsx";
 
 const Main = () => {
   const [mainLinktoggle, setMainLinkToggle] = useState("All");
@@ -96,7 +95,7 @@ const Main = () => {
     setCurrentPage(1);
     setSearchValue(e.target.value);
   }
-
+  const { clickedItem,handleItemClick } = useWishlistContext();
   return (
     <main>
       <div className="box-container">
@@ -140,6 +139,7 @@ const Main = () => {
                 category={item.category}
                 price={item.price}
                 rating={item.rating}
+                handleItemClick={()=>handleItemClick(item.id)}
               />
             ) : null
           )}

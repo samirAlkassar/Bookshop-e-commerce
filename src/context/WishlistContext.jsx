@@ -18,6 +18,31 @@ export const WishlistProvider = ({ children }) => {
     const [numberOfCartItems, setNumberOfCartItems] = useState(cartList.lengh);
     const [numberOfFavorites, setNumberOfFavorites] = useState(favorites.lengh);
 
+    const [clickedItem, setClickedItem] = useState(() => {
+        try {
+            const storedClickedItem = localStorage.getItem("itemkey");
+            return storedClickedItem ? JSON.parse(storedClickedItem) : null; // Parse and return as number
+        } catch (error) {
+            console.error("Error reading from localStorage", error);
+            return null;
+        }
+    });
+
+    // Save clickedItem to localStorage whenever it changes
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            try {
+                if (clickedItem !== null) { // Only save valid numbers
+                    localStorage.setItem("itemkey", JSON.stringify(clickedItem));
+                }
+            } catch (error) {
+                console.error("Error writing to localStorage", error);
+            }
+        }, 300);
+
+        return () => clearTimeout(timeout);
+    }, [clickedItem]);
+
     useEffect(() => {
         try {
             const storedFavs = localStorage.getItem("favorites");
@@ -67,6 +92,10 @@ export const WishlistProvider = ({ children }) => {
         return () => clearTimeout(timeout);
     }, [cartList]);
 
+
+////////////////////////////////
+
+//////////////////////////////////////////////////////
     const addToFavorites = (item) => {
         setFavorites((prev) =>[...prev, item]);
     };
@@ -93,6 +122,11 @@ export const WishlistProvider = ({ children }) => {
         return cartList.some((item) => item.id === itemId);
     };
 
+
+    const handleItemClick = (itemID) => {
+        setClickedItem(itemID)
+    }
+    console.log(clickedItem)
     const value = {
         favorites,
         addToFavorites,
@@ -103,7 +137,9 @@ export const WishlistProvider = ({ children }) => {
         removeFromCart,
         isInCart,
         numberOfCartItems,
-        numberOfFavorites
+        numberOfFavorites,
+        clickedItem,
+        handleItemClick
     };
 
     return (

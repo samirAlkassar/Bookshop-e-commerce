@@ -10,6 +10,7 @@ const useFormContext = createContext();
 
 
 const WhishList = () => {
+
   const { favorites } = useWishlistContext();
   const [openForm, setOpenForm] = useState(false);
   const [newWishlist, setNewWishlist] = useState("");
@@ -136,6 +137,7 @@ function TopSection(){
 }
 
 function BottomSection({favorites}){
+  const { clickedItem,handleItemClick } = useWishlistContext();
   return (
     <section className="bottom_section">
       <nav className="side-nav">
@@ -155,7 +157,9 @@ function BottomSection({favorites}){
                 category={item.category}
                 price={item.price}
                 rating={item.rating}
-                id={item.id}/>))
+                id={item.id}
+                handleItemClick={()=>handleItemClick(item.id)}/>)
+                )
               )}
         </div>
       </section>
