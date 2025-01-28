@@ -563,10 +563,13 @@ div.productrating-wrapper div.right-section{
 div.productrating-wrapper div.right-section div.review-header{
     display: flex;
     width: 100%;
+    align-items: center;
     justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom:1px solid var(--subtitle);
+    margin-bottom: 1rem;
 }
 div.productrating-wrapper div.right-section div.review-header h4{
-    margin-bottom: 1rem;
     color: var(--darksubtitle);
     opacity: 0.9;
     font-size: 1.2rem;
@@ -574,4 +577,84 @@ div.productrating-wrapper div.right-section div.review-header h4{
 }
 div.productrating-wrapper div.right-section div.review-header div.review-filters{
     display: flex;
+}
+
+
+
+/*================= [ commnet ]===============================*/
+div.productrating-container div.comment-container{
+    display: flex;
+    width: 100%;
+    margin:1rem 0;
+    border-bottom: 1px solid var(--subtitle);
+    padding: 1.5rem 0;
+}
+div.image-wrapper{
+    width: 15%;
+    padding: 0.4rem;
+    display: flex;
+    justify-content: center;
+}
+div.image-wrapper img{
+    clip-path: circle(50%);
+    height: 60px;
+    width: 60px;
+}
+div.wrapper{
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+}
+div.wrapper > div{
+    display: flex;
+    gap: 1rem;
+}
+div.wrapper h1.userName{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+div.wrapper span.Rating{
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+}
+div.wrapper p.Data{
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-weight: 600;
+    margin-top: 0.15rem;
+}
+div.wrapper span.Verified{
+    background-color: #484848bb;
+    color: var(--subtitle);
+    font-size: 0.9rem;
+    padding:0.05rem 0.3rem;
+    border-radius: 10px;
+}
+div.comment{
+    display: flex;
+    position: relative;
+    margin-top: 0.8rem;
+}
+div.comment p{
+    display: -webkit-box; /* Enables the flexbox layout for text */
+    -webkit-line-clamp: 3; /* Limits text to 3 lines */
+    -webkit-box-orient: vertical; /* Specifies the vertical orientation */
+    overflow: hidden; /* Hides overflowed content */
+    text-overflow: ellipsis; /* Adds the ellipsis (...) */
+    line-height: 1.5; /* Adjust line height for readability */
+    max-height: calc(1.5em * 3); /* 3 lines of text */
+    margin-bottom: 10px;
+    font-size: 16px;
+    width: 540px;
+    margin-left: 0.4rem;
+}
+div.comment a{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+} 
+
+.stared{
+    color: orange;
 }

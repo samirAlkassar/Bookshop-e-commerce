@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './itemDetails.css'; // Import the CSS
 import {Link, useAsyncError} from "react-router-dom"
 import Filter from "../ui-elements/Filter"
+import Avatar from "../../assets/avatar.jpg"
+import Samir from "../../assets/samir.jpeg"
 
 const ItemDetails = () => {
     return (
@@ -219,11 +221,11 @@ function OverView(){
 function ProductRating(){
     const select_stars = [
         {label:"All Stars", value:"All"},
-        {label:"⭐", value:"1"},
-        {label:"⭐⭐", value:"2"},
-        {label:"⭐⭐⭐", value:"3"},
-        {label:"⭐⭐⭐⭐", value:"4"},
-        {label:"⭐⭐⭐⭐⭐", value:"5"},
+        {label:"★", value:"1"},
+        {label:"★★", value:"2"},
+        {label:"★★★", value:"3"},
+        {label:"★★★★", value:"4"},
+        {label:"★★★★★", value:"5"},
     ]
     const select_sort = [
         {label:"Top Review", value:"1"},
@@ -322,13 +324,17 @@ function ProductRating(){
                                     filter_list={select_sort}
                                     handelSelection={handelSelection}/>
                         </div>
-                        <div className="comments-wrapper">
+                    </div>
+                    <div className="comments-wrapper">
 
-                            <div className="comment-container">
-                                
-                            </div>
+                        <Comment />
+                        <Comment />
+                        <Comment />
+                        <Comment />
+                        <Comment />
+                        <Comment />
+                        <Comment />
 
-                        </div>
                     </div>
                     <div className="reviews-wrapper">
 
@@ -341,6 +347,45 @@ function ProductRating(){
 function Recomendations(){
     return (
         <h1>Recomendations</h1>
+    )
+}
+
+
+function Comment(){
+    return(
+        <div className="comment-container">
+        <div className="image-wrapper">
+            <img width={"100px"} src={Samir} alt="avatar"/>
+        </div>
+        <div className="wrapper">
+            <div>
+                <div>
+                    <h1 className='userName'>User Name</h1>
+                    <span className='Rating'>
+                    <i class="fa-solid fa-sta stared"></i>
+                    <i class="fa-solid fa-star stared"></i>
+                    <i class="fa-solid fa-star stared"></i>
+                    <i class="fa-solid fa-star stared"></i>
+                    <i class="fa-solid fa-star"></i>
+                    </span>
+                </div>
+                <div>
+                    <p className='Data'>2022-03-25</p>
+                    <span className='Verified'>Verified Purchase ✅</span>
+                </div>
+            </div>
+            <div className="comment">
+                <p>Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Voluptatibus nam repellat
+                    optio excepturi nisi autem distinctio ipsa, 
+                    ipsam ab soluta aliquam. Quis illum maiores 
+                    laudantium earum, quaerat ipsum. Deserunt, ipsa. lorem 
+                    this is an example text ,we want to make a comment
+                </p>
+                <a href="#">More</a>
+            </div>
+        </div>
+    </div>
     )
 }
 
