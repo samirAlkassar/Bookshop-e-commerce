@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './itemDetails.css'; // Import the CSS
-import {Link} from "react-router-dom"
+import {Link, useAsyncError} from "react-router-dom"
+import Filter from "../ui-elements/Filter"
 
 const ItemDetails = () => {
     return (
@@ -216,8 +217,125 @@ function OverView(){
     )
 }
 function ProductRating(){
+    const select_stars = [
+        {label:"All Stars", value:"All"},
+        {label:"⭐", value:"1"},
+        {label:"⭐⭐", value:"2"},
+        {label:"⭐⭐⭐", value:"3"},
+        {label:"⭐⭐⭐⭐", value:"4"},
+        {label:"⭐⭐⭐⭐⭐", value:"5"},
+    ]
+    const select_sort = [
+        {label:"Top Review", value:"1"},
+        {label:"Most Recent", value:"2"},
+        {label:"Highest Rating", value:"3"},
+        {label:"Lowest Rating", value:"4"},
+    ]
+    const handelSelection = ()=>{
+        
+    }
+
     return (
-        <h1>ProductRating</h1>
+        <div className="productrating-container">
+            <h1 className="productrating-header">Product Rating & Reviews</h1>
+            <div className="productrating-wrapper">
+                <div className="left-section">
+                <span class="heading">User Rating</span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <p>4.1 average based on 254 reviews.</p>
+                <hr style={{border:"3px solid #f1f1f1"}}/>
+
+                <div class="row">
+                <div class="side">
+                    <div>5 star</div>
+                </div>
+                <div class="middle">
+                    <div class="bar-container">
+                    <div class="bar-5"></div>
+                    </div>
+                </div>
+                <div class="side right">
+                    <div>150</div>
+                </div>
+                <div class="side">
+                    <div>4 star</div>
+                </div>
+                <div class="middle">
+                    <div class="bar-container">
+                    <div class="bar-4"></div>
+                    </div>
+                </div>
+                <div class="side right">
+                    <div>63</div>
+                </div>
+                <div class="side">
+                    <div>3 star</div>
+                </div>
+                <div class="middle">
+                    <div class="bar-container">
+                    <div class="bar-3"></div>
+                    </div>
+                </div>
+                <div class="side right">
+                    <div>15</div>
+                </div>
+                <div class="side">
+                    <div>2 star</div>
+                </div>
+                <div class="middle">
+                    <div class="bar-container">
+                    <div class="bar-2"></div>
+                    </div>
+                </div>
+                <div class="side right">
+                    <div>6</div>
+                </div>
+                <div class="side">
+                    <div>1 star</div>
+                </div>
+                <div class="middle">
+                    <div class="bar-container">
+                    <div class="bar-1"></div>
+                    </div>
+                </div>
+                <div class="side right">
+                    <div>20</div>
+                </div>
+                </div>
+                </div>
+
+                <div className="right-section">
+                    <div className="review-header">
+                        <h4>9 Reviews</h4>
+                        <div className="review-filters">
+                            <Filter label="Filter By:"
+                                    icon="fa-solid fa-sort"
+                                    filter_list={select_stars}
+                                    handelSelection={handelSelection}/>
+
+                            <Filter label="Sort By:"
+                                    icon="fa-solid fa-arrow-down-short-wide"
+                                    filter_list={select_sort}
+                                    handelSelection={handelSelection}/>
+                        </div>
+                        <div className="comments-wrapper">
+
+                            <div className="comment-container">
+                                
+                            </div>
+
+                        </div>
+                    </div>
+                    <div className="reviews-wrapper">
+
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
 function Recomendations(){

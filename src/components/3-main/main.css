@@ -23,7 +23,7 @@ main {
 /*-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==--=-=-=-=-=-=-=-=-=
             2-main navigation links
 -=-=-=-=-=-=--=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==-=*/
-
+main nav.main-nav {margin-bottom: 1rem;}
 main nav.main-nav ul {
     list-style: none;
     display: flex;
@@ -54,40 +54,6 @@ main nav.main-nav ul a {
 /*-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==--=-=-=-=-=-=-=-=-=
             3-filter Section
 -=-=-=-=-=-=--=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==-=*/
-
-main div.filter-section {
-    width: 100%;
-    text-align: right;
-    margin-top: 1rem;
-    padding: 0 0.6rem;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 0.5rem;
-}
-main div.filter-section label {
-    color: var(--darktitle);
-    margin-right: 0.2rem;
-    font-weight: 500;
-}
-main div.filter-section select {
-    border: 1px solid var(--darksubtitle);
-    padding: 0.5rem;
-    font-size: 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    background-color: #fff;
-    transition: border-color 0.3s;
-}
-main div.filter-section select:focus {
-    border-color: var(--darktitle);
-    outline: none;
-}
-main div.filter-section span i {
-    margin-right: 0.5rem;
-    font-size: 1rem;
-    color: var(--darktitle);
-}
 
 /*-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==--=-=-=-=-=-=-=-=-=
             4-main items cards

@@ -11,3 +11,34 @@ button.button-sm:active{scale: 0.98;}
 button.button-sm i{
     margin-right: 0.2rem;
 }
+
+div.filter-section {
+    text-align: right;
+    padding: 0 0.6rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+}
+div.filter-section label {
+    color: var(--darksubtitle);
+    font-weight: 450;
+}
+div.filter-section select {
+    border: 1px solid var(--darksubtitle);
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+div.filter-section select:focus {
+    border-color: var(--darksubtitle);
+    outline: none;
+}
+div.filter-section span i {
+    margin-right: 0.3rem;
+    font-size: 1rem;
+    color: var(--darksubtitle);
+}

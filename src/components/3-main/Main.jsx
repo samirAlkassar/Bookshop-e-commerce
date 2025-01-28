@@ -4,6 +4,7 @@ import "./main.css";
 import { mainPageLinks } from "../../constants/constants.js";
 import { enhancedItems } from "../../constants/items.js";
 import ItemCard from "../ItemCard/ItemCard.jsx";
+import Filter from "../ui-elements/Filter.jsx"
 
 
 
@@ -124,20 +125,7 @@ const Main = () => {
           </ul>
         </nav>
 
-        <div className="filter-section">
-          <label htmlFor="filter">Filtered by:</label>
-          <span>
-            <i className="fa-solid fa-arrow-up-short-wide"></i>
-          </span>
-
-          <select name="filter" id="filter" onChange={handelSelection}>
-            {Filter_selections.map((filter) => (
-              <option key={filter.value} value={filter.value}>
-                {filter.label}
-              </option>
-            ))}
-          </select>
-        </div>
+        <Filter label="Filtered by:" icon="fa-solid fa-arrow-up-short-wide" filter_list={Filter_selections} handelSelection={handelSelection} />
 
         <section className="cards-container">
 
