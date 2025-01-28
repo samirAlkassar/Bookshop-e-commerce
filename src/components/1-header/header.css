@@ -1,0 +1,299 @@
+/* -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
+header
+-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
+                        1-header (background and dimentions)
+                        2-buttons (login and signup)
+                        3-lists (list style and text)
+                        4-media querry and modal
+-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~ */
+
+
+/* -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
+                        1-header (background and dimentions)
+-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~ */ 
+header {
+    background: var(--primary);
+    z-index: 30;
+    position: sticky;
+    top: 0;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.208);
+}
+
+header div.header-container{
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 1300px;
+}
+/* -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
+                        2-buttons (login and signup)
+-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~ */ 
+header div.login-buttons{
+    display: flex;
+    gap: 1rem;
+}
+header div.login-buttons button {
+    all:unset;
+    width: 80px;
+    padding: 8px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+header div.login-buttons button.login-btn{
+    background: var(--secondary);
+    color: var(--darksubtitle);
+    opacity: 0.9;
+}
+header div.login-buttons button.sign-btn{
+    color: var(--subtitle);
+    border: 1px solid var(--subtitle);
+    opacity: 0.9;
+}
+
+
+/* buttons hover effect: */
+
+header div.login-buttons button.login-btn:hover,
+header div.login-buttons button.sign-btn:hover
+{
+    opacity: 1;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+/* buttons active effect: */
+header div.login-buttons button.login-btn:active,
+header div.login-buttons button.sign-btn:active
+{
+    scale: 0.9;
+    transition: 0.1s ease-in-out;
+}
+
+
+/* -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
+                        3-lists (list style and text)
+-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~ */ 
+header nav{
+    display: flex;
+}
+header nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+header nav.main-nav{
+    display: flex;
+    align-items: center;
+}
+header nav.main-nav li {
+    position: relative;
+}
+.cart-notification{
+    position: absolute;
+    color: black;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height:20px;
+    top: -10px;
+    right: -15px;
+    border-radius: 50%;
+    opacity: 0.8;
+    background-color: yellow;
+    font-weight: normal;
+}
+header nav.main-nav a{
+    text-decoration: none;
+    color: var(--subtitle);
+    opacity: 0.9;
+    font-size: 1.1rem;
+    opacity: 0.95;
+    display: inline-block;
+    text-align: right;
+    padding:1.5rem 1.2rem;
+    height: 100%;
+}
+
+header nav.main-nav a:hover {
+    color:var(--title);
+    opacity: 1;
+    transition: 0.2s ease;
+    background-color: var(--navhover);
+}
+header nav.main-nav a:active {
+    scale: 0.98;
+    transition: 0.1s ease-in-out;
+}
+
+.nav-active {
+    color: var(--title);
+    opacity: 1 !important;
+    font-weight: 600;
+}
+
+header select.language {
+    border: none;
+    background-color:transparent;
+    padding: 11px;
+    height: 35px;
+    border-radius: 4px;
+    opacity: 0.9;
+
+}
+header select.language:hover {
+    opacity: 1;
+}
+header select.language option {
+    background-color: #fff;
+    color: var(--darksubtitle);
+    padding: 5px;
+}
+
+header select.language option:hover {
+    background-color: var(--secondary);
+    color: var(--darksubtitle);
+}
+header div.language-container{
+    background: var(--subtitle);
+    padding-right: 12px;
+    border-radius: 4px;
+    height: fit-content;
+}
+header i.fa-globe{
+    color: var(--darksubtitle);
+}
+/* -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
+                        4-modal
+-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~ */ 
+
+header div.modal-container {
+    position: fixed;
+    inset: 0;
+    background-color: #00000074;
+    backdrop-filter: blur(3px);
+    display: none;
+}
+header button.menu-btn{
+    border: none;
+    padding: 0.2rem 1rem;
+    font-size: 1.5rem;
+    color: var(--subtitle);
+    background: transparent;
+    opacity: 0.9;
+    display: none;
+}
+header button.menu-btn:hover{
+    opacity: 1;
+    color: var(--title);
+    cursor: pointer;
+}
+
+
+header div.modal-container nav ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+header div.modal-container nav ul li{
+    background: var(--primary);
+    color: var(--subtitle);
+    border-bottom: 2px solid var(--subtitle);
+    width: 100%;
+    display: block;
+    text-align: left;
+    padding: 20px 20px;
+    text-align: right;
+    display: flex;
+    cursor: pointer;
+}
+header div.modal-container nav ul li:hover{
+    background-color:  var(--navhover);
+}
+header div.modal-container nav ul a {
+    width: 100%;
+    font-size: 1.3rem;
+    color: var(--subtitle);
+}
+
+header nav ul li i{
+    padding-left: 4px ;
+}
+
+/* 
+close button */
+
+header div.modal-container nav ul li.close-btn{
+    background: var(--subtitle);
+    color: var(--darksubtitle);
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    font-size: 1.3rem;
+}
+header div.modal-container nav ul li.close-btn:hover {
+    background: lightgray;
+    cursor: pointer;
+}
+
+
+/* -~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~
+                        5-media querry and modal
+-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~ */ 
+@media screen and (max-width:1120px) {
+    header nav.main-nav a{
+        font-size: 1rem;
+        padding:1.4rem 1rem;
+    }
+}
+@media (max-width:1000px){
+    header nav.main-nav a{
+        font-size: 1rem;
+        padding:1.3rem 1.2rem;
+    }
+    header div.header-container{
+        width: 90%;
+    }
+}
+
+@media (max-width:910px){
+    header div.modal-container{
+        display: block;
+    }
+    header nav.main-nav{
+        display: none;
+    }
+    header button.menu-btn{
+        display: block;
+        margin: 1rem 0;
+    }
+    header div.header-container{
+        width: 95%;
+    }
+
+}
+
+
+
+
+
+
+
+
+.homepage-context{
+    background-color: white;
+    height: 400px;
+    width: 100%;
+    position: absolute;
+    text-align: right;
+    top: 70px;
+    left: 0;
+}
+.homepage-context h3,.homepage-context p{
+    color:black;
+}

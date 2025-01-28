@@ -1,0 +1,217 @@
+
+
+div.card {
+    flex: 0 1 20%;
+    max-width: 20%;
+    background-color: #fff;
+    padding: 0.6rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    cursor: pointer;
+}
+div.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+div.card h5 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--darktitle);
+    margin-bottom: 0.5rem;
+}
+div.card p {
+    font-size: 1rem;
+    color: var(--darksubtitle);
+    line-height: 1.5;
+}
+
+
+
+
+
+
+
+/* -=-=-=-=-=-=--=-=-=-=-{ card image }=-=-=-=--=-=-=-=-=-=-=-=-==-= */
+ div.card div.card-imagecontainer {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding-top: 120%; /* Increased height */
+}
+
+ div.card div.card-imagecontainer img {
+    position: absolute;
+    top: 2.5%;
+    left: 2.5%;
+    width: 95%;
+    height: 95%;
+    object-fit: cover;
+    border-radius: 4px;
+    z-index: 5;
+}
+
+ div.card i.fa-heart {
+    position: absolute;
+    z-index: 6; /* Increased z-index to ensure it shows on top */
+    background-color: var(--subtitle);
+    width: 35px;
+    height: 35px;
+    font-size: 1.5rem;
+    opacity: 0.95;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.42);
+    right: 0;
+    margin: 3%;
+}
+ div.card i.fa-regular{
+    color:  #00000081;
+    cursor: pointer;
+}
+ div.card i.fa-solid{
+    color:  red;
+    cursor: pointer;
+}
+/* -=-=-=-=-=-=--=-=-=-=-{ card Text }=-=-=-=--=-=-=-=-=-=-=-=-==-= */
+ div.card div.cardtext-container{
+    padding: 0.5rem;
+    padding-bottom: 0.6rem;
+}
+
+ div.card h5.item-title{
+    color: var(--darktitle);
+    font-size: 1.2rem;
+    font-weight: 500;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 1.5rem;
+}
+ div.card p.item-category{
+    color: gray;
+    font-size: 0.9rem;
+    border: 1px solid transparent;
+    width: fit-content;
+    padding: 0.01rem;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.064);
+}
+ div.card p.item-description {
+    color: var(--darksubtitle);
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 1.5em; /* Adjust height to maintain space for two lines */
+    white-space: nowrap;
+}
+ div.card span.category i.fa-star{
+    color: rgb(38, 146, 38);
+    margin-right: 0.1rem;
+}
+ div.card span.category{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+/* ///////////////////////////////////////////////////// price ////////////////////////////////////// */
+ div.card-bottom-section{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+ div.card-bottom-section div.priceTage h6{
+    color: var(--darksubtitle);
+}
+ div.card-bottom-section div.priceTage h4{
+    color: var(--darktitle);
+    font-size: 1.4rem;
+}
+ div.card-bottom-section button.add-to-card-btn{
+    background: rgba(23, 23, 41, 0.215);
+    width: 55%;
+    border-radius: 4px;
+    color:var(--darktitle);
+    font-size: 0.8rem;
+    border: none;
+    cursor: pointer;
+}
+ div.card-bottom-section button.add-to-card-btn:hover{
+    background-color:rgba(23, 23, 41, 0.447);
+    border: 0.5px solid black;
+}
+ div.card-bottom-section button.add-to-card-btn:active{
+    scale: 0.98;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1300px) {
+    .card-container {
+        gap: 1.5rem;
+    }
+    .card {
+        flex: 0 1 30%;
+        max-width: 30%;
+    }
+    .card h5 {
+        font-size: 1.4rem;
+    }
+    .card p {
+        font-size: 0.95rem;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .card {
+        flex: 0 1 45%;
+        max-width: 45%;
+    }
+    .card-container {
+        gap: 1.2rem;
+    }
+    .card h5 {
+        font-size: 1.2rem;
+    }
+    .card p {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .card {
+        flex: 0 1 100%;
+        max-width: 100%;
+    }
+    .card-container {
+        gap: 1rem;
+    }
+    .card h5 {
+        font-size: 1.1rem;
+    }
+    .card p {
+        font-size: 0.85rem;
+    }
+    .card button {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .card-container {
+        padding: 0 0.5rem;
+    }
+    .card h5 {
+        font-size: 1rem;
+    }
+    .card p {
+        font-size: 0.8rem;
+    }
+}

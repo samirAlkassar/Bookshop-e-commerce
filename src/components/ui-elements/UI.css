@@ -1,0 +1,13 @@
+button.button-sm{
+    border: none;
+    padding:0.5rem 1.3rem;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid var(--subtitle);
+    border-radius: 4px;
+}
+button.button-sm:hover{background-color: #e6e6e6;}
+button.button-sm:active{scale: 0.98;}
+button.button-sm i{
+    margin-right: 0.2rem;
+}

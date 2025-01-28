@@ -1,0 +1,209 @@
+/*-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==--=-=-=-=-=-=-=-=-=
+                Hero Section
+                    1-SVG background
+                    2-the hero container
+                    3-the hero text
+                    4-the hero search
+                    5-links
+                    6-media querry
+-=-=-=-=-=-=--=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==-=*/
+
+/*-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==--=-=-=-=-=-=-=-=-=
+               1- SVG background
+-=-=-=-=-=-=--=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==-=*/
+.hero {
+    height: 107.3vh; /* Full viewport height */
+    background-image: url('../../../public/herobackground.svg');
+    background-repeat: no-repeat; /* Avoid repeating */
+    background-position: center top; /* Anchor the background at the top-center */
+    background-size: contain; /* Ensure the SVG scales proportionally */
+}
+
+/*-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==--=-=-=-=-=-=-=-=-=
+               2- the hero container
+-=-=-=-=-=-=--=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==-=*/
+div.hero section.hero-container {
+    width: 80%;
+    margin-inline: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 5rem;
+    max-width: 1300px;
+    text-align: center;
+}
+
+/*-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==--=-=-=-=-=-=-=-=-=
+              3-  the hero text
+-=-=-=-=-=-=--=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==-=*/
+div.hero section.hero-container h1{
+    font-family: "Reem Kufi", serif;
+    color: var(--title);
+    font-size: 6rem;
+ 
+}
+div.hero section.hero-container h1 span{
+    color: var(--secondary);
+    font-family: "Reem Kufi", serif;
+}
+div.hero section.hero-container h3{
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+div.hero section.hero-container p{
+    font-size: 1.1rem;
+    color: var(--subtitle);
+}
+
+/*-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==--=-=-=-=-=-=-=-=-=
+               4- the serach input
+-=-=-=-=-=-=--=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==-=*/
+
+div.hero section.hero-container form.search-form {
+    margin:3.5rem 0 2rem 0;
+    position: relative;
+    width: 100%;
+}
+div.hero section.hero-container form.search-form input[type="text"]{
+    background-color: var(--title);
+    width:70%;
+    padding: 1rem;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+}
+div.hero section.hero-container form.search-form button[type="submit"]{
+    position: absolute;
+    padding: 1rem;
+    border-radius: 4px;
+    scale: 0.9;
+    right: 15%;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+
+/*-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==--=-=-=-=-=-=-=-=-=
+                      5-  Links
+-=-=-=-=-=-=--=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==-=*/
+div.hero div.links-container {
+    display: flex;
+    gap: 1rem;
+}
+div.hero div.links-container a{
+    color: var(--subtitle);
+    width: 140px;
+    text-align: center;
+    background: var(--darksubtitle);
+    padding: 0.7rem;
+    border-radius: 4px;
+}
+div.hero div.links-container a i{
+    padding-right: 8%;
+}
+
+
+/*-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==--=-=-=-=-=-=-=-=-=
+                      6-  Media querry
+-=-=-=-=-=-=--=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==-=*/
+@media (max-width:800px){
+
+        /* -=-=-=-=-=-=-background-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==-=*/ 
+
+        /* -=-=-=-=-=-=-text-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==-=*/ 
+        div.hero section.hero-container h1{
+            font-size: 4rem;
+         
+        }
+        div.hero section.hero-container h3{
+            font-size: 1.5rem;
+        }
+        div.hero section.hero-container p{
+            font-size: 1rem;
+        }
+
+        /* -=-=-=-=-=-=-search-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==-=*/ 
+    div.hero section.hero-container form.search-form input[type="text"]{
+        width: 90%;
+        padding: 0.6rem;
+    }
+    div.hero section.hero-container form.search-form button[type="submit"]{
+        padding: 0.6rem;
+        scale: 0.9;
+        right: 5%;
+    }
+    /* -=-=-=-=-=-=-links-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==-=*/   
+    div.hero div.links-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+    }
+    div.hero div.links-container a{
+        width: 110px;
+        padding: 0.4rem;
+        font-size: 0.8rem;
+    }
+    
+}
+
+
+
+@media (max-width:500px){
+    /* -=-=-=-=-=-=-text-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==-=*/ 
+        div.hero section.hero-container h1{
+        font-size: 3rem;
+
+        }
+        div.hero section.hero-container h3{
+            font-size: 1.3rem;
+        }
+        div.hero section.hero-container p{
+            font-size: 1rem;
+        }
+
+    /* -=-=-=-=-=-=-search-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==-=*/ 
+    div.hero section.hero-container form.search-form input[type="text"]{
+        width: 100%;
+        padding: 1rem;
+    }
+    div.hero section.hero-container form.search-form button[type="submit"]{
+        padding: 1rem;
+        scale: 0.9;
+        right: 0;
+    }
+    /* -=-=-=-=-=-=-links-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-==-=*/   
+    div.hero div.links-container {
+        gap: 0.2rem;
+    }
+    div.hero div.links-container a{
+        width: 100px;
+        padding: 0.5rem;
+        font-size: 0.7rem;
+    }
+    
+}
+@media (max-width: 1400px) {
+    .hero {
+
+        height: 660px; /* Full viewport height */
+        background-size: cover; /* Ensure the SVG scales proportionally */
+        
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .hero {
+        height: 760px; /* Full viewport height */
+    }
+  }
+  @media (min-width: 1600px) {
+    .hero {
+        background-size: contain; /* Adjust size for very wide screens */
+        background-position: center; /* Reposition if needed */
+    }
+  }

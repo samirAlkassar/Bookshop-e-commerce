@@ -1,0 +1,87 @@
+/* -=-~-=-~-=-~-=-~-=-~-=~-=-~-=-~-=-~-=-~-=-~-=-~-=-~-=-~-=-~=-
+                About us Page                               |
+                1- About Us text                            |
+                2- About us Image/Animation                 |
+                3-Media querry                              |
+-=-~-=-~-=-~-=-~-=-~-=~-=-~-=-~-=-~-=-~-=-~-=-~-=-~-=-~-=-~=- */
+
+section.about-us div.about-us-container{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    max-width: 1300px;
+}
+
+/* -=-~-=-~-=-~-=-~-=-~-=~-=-~-=-~-=-~-=-~-=-~-=-~-=-~-=-~-=-~=-
+                    1- About Us text
+-=-~-=-~-=-~-=-~-=-~-=~-=-~-=-~-=-~-=-~-=-~-=-~-=-~-=-~-=-~=- */
+section.about-us section.left-section{
+    width: 50%;
+}
+section.about-us section.left-section h1.title{
+    color: var(--primary);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+section.about-us section.left-section p.subtitle{
+    color: var(--darksubtitle);
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+/* -=-~-=-~-=-~-=-~-=-~-=~-=-~-= { buttons }  -~-=-~-=-~-=-~-=-~-=-~-=-~-=-~=- */ 
+section.about-us section.left-section div.buttons-wrapper{
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    margin-top: 2rem;
+}
+section.about-us section.left-section div.buttons-wrapper button{
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    border: none;
+    width: 150px;
+    border-radius: 4px;
+}
+section.about-us section.left-section div.buttons-wrapper button.read-more{
+    color: var(--darktitle);
+    background-color: transparent;
+    border: 1px solid var(--primary);
+}
+section.about-us section.left-section div.buttons-wrapper button.join-us{
+    color: var(--title);
+    background-color: var(--primary);
+    border: 1px solid transparent;
+}
+/* -=-~-=-~-=-~-=-~-=-~-=~-=-~-= { buttons hover }  -~-=-~-=-~-=-~-=-~-=-~-=-~-=-~=- */ 
+section.about-us section.left-section div.buttons-wrapper button.read-more:hover{
+    color: var(--title);
+    background-color: var(--primary);
+}
+section.about-us section.left-section div.buttons-wrapper button.join-us:hover{
+    color: var(--darktitle);
+    background-color: transparent;
+    border: 1px solid var(--primary);
+}
+
+/* -=-~-=-~-=-~-=-~-=-~-=~-=-~-= { buttons active }  -~-=-~-=-~-=-~-=-~-=-~-=-~-=-~=- */ 
+section.about-us section.left-section div.buttons-wrapper button:active{
+    scale: 0.95;
+}
+
+/* -=-~-=-~-=-~-=-~-=-~-=~-=-~-=-~-=-~-=-~-=-~-=-~-=-~-=-~-=-~=-
+                    2- About us Image/Animation   
+-=-~-=-~-=-~-=-~-=-~-=~-=-~-=-~-=-~-=-~-=-~-=-~-=-~-=-~-=-~=- */
+section.about-us section.right-section{
+    width: 50%;
+}
+section.about-us section.right-section img{
+    width: 100%;
+}
+
+
+/* -=-~-=-~-=-~-=-~-=-~-=~-=-~-=-~-=-~-=-~-=-~-=-~-=-~-=-~-=-~=-
+                    3-Media querry
+-=-~-=-~-=-~-=-~-=-~-=~-=-~-=-~-=-~-=-~-=-~-=-~-=-~-=-~-=-~=- */
