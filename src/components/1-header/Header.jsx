@@ -7,26 +7,26 @@ import { useWishlistContext } from "../../context/WishlistContext.jsx";
 // hellow this is git hub comment 
 // this is from vs code to github now 😂🧑‍🎤
 export const HoverPopups = [
-  // {
-  //   title: HomeHover ,
-  //   id:"3"
-  // },
-  // {
-  //   title: BooksHover,
-  //   id:"2"
-  // },
-  // {
-  //   title: ToyesHover,
-  //   id:"3"
-  // },
-  // {
-  //   title: GiftsHover,
-  //   id:"4"
-  // },
-  // {
-  //   title: OffersHover,
-  //   id:"5"
-  // }
+  {
+    title: HomeHover ,
+    id:"3"
+  },
+  {
+    title: BooksHover,
+    id:"2"
+  },
+  {
+    title: ToyesHover,
+    id:"3"
+  },
+  {
+    title: GiftsHover,
+    id:"4"
+  },
+  {
+    title: OffersHover,
+    id:"5"
+  }
 ]
 // test 
 
