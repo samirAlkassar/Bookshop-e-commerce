@@ -8,14 +8,19 @@ import { enhancedItems } from "../../constants/items.js";
 import { useWishlistContext } from "../../context/WishlistContext.jsx";
 
 const ItemDetails = () => {
-    const { addToCart, removeFromCart, isInCart ,addToFavorites,removeFromFavorites,isFavorite,clickedItem } = useWishlistContext();
+    const { addToCart, removeFromCart, isInCart ,addToFavorites,removeFromFavorites,isFavorite,clickedItem, quantities, setQuantities } = useWishlistContext();
     const currentItem = enhancedItems.find(item => item.id == clickedItem);
     console.log(currentItem, clickedItem)
     const {id, image, title, description, category, price, rating} = currentItem
     const favorite = isFavorite(id); //return true if in the favorites ,otherwise false
     const incart = isInCart(id); //return true if in the cart ,otherwise false
 
-      
+    const handleSelection = (id, value) => {
+        setQuantities((prevQuantities) => ({
+            ...prevQuantities,
+            [id]: Number(value),
+        }));
+    };
     
     
       
@@ -61,7 +66,7 @@ const ItemDetails = () => {
                 </p>
                 </div>
                 <div className="top-section">
-                    <LeftSection currentItem={currentItem} favorite={favorite} incart={incart} toggleFavorite={toggleFavorite} toggleCart={toggleCart}/>
+                    <LeftSection handleSelection={handleSelection} id={id}  quantity={quantities[id] || 1} currentItem={currentItem} favorite={favorite} incart={incart} toggleFavorite={toggleFavorite} toggleCart={toggleCart}/>
                     <MiddleSection currentItem={currentItem}/>
                     <RightSection />
                 </div>
@@ -80,7 +85,7 @@ const ItemDetails = () => {
 };
 
 
-function LeftSection({currentItem,toggleFavorite,toggleCart,favorite, incart}){
+function LeftSection({currentItem,toggleFavorite,toggleCart,favorite, incart,handleSelection,quantity,id}){
     return (
         <div className="show-item-container">
             <div className="top-wrapper">
@@ -101,10 +106,13 @@ function LeftSection({currentItem,toggleFavorite,toggleCart,favorite, incart}){
                 </div>
             </div>
             <div className="bottom-wrapper">
-                <select name="" id="">
+                <select onChange={(e) => handleSelection(id, e.target.value)} 
+                        value={quantity}>
                     <option value="1">1</option>
-                    <option value="1">2</option>
-                    <option value="1">3</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
                 </select>
                 <button style={{background:incart? "#28A745":"#0056B3"}} onClick={toggleCart} className='add-btn'>Add To Cart</button>
                 <button  onClick={toggleFavorite} className='favorite-btn'><i className={favorite ? "fa-solid fa-heart" : "fa-regular fa-heart"}></i></button>

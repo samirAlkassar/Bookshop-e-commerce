@@ -6,18 +6,8 @@ import { useWishlistContext } from "../../context/WishlistContext.jsx";
 const useCartContext = createContext();
 
 const Cart = () => {
-    const { cartList, numberOfCartItems } = useWishlistContext();
-    const [quantities, setQuantities] = useState(() => {
-        const savedQuantities = localStorage.getItem('quantities');
-        return savedQuantities ? JSON.parse(savedQuantities) : cartList.reduce((acc, item) => {
-            acc[item.id] = 1; // Default quantity is 1 for each item
-            return acc;
-        }, {});
-    });
+    const { cartList, numberOfCartItems,setQuantities,quantities } = useWishlistContext();
 
-    React.useEffect(() => {
-        localStorage.setItem('quantities', JSON.stringify(quantities));
-    }, [quantities]);
 
     const number_selections = [
         { label: "1", value: 1 },

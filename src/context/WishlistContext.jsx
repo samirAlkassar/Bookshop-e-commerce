@@ -27,6 +27,17 @@ export const WishlistProvider = ({ children }) => {
             return null;
         }
     });
+    const [quantities, setQuantities] = useState(() => {
+        const savedQuantities = localStorage.getItem('quantities');
+        return savedQuantities ? JSON.parse(savedQuantities) : cartList.reduce((acc, item) => {
+            acc[item.id] = 1; // Default quantity is 1 for each item
+            return acc;
+        }, {});
+    });
+
+    useEffect(() => {
+        localStorage.setItem('quantities', JSON.stringify(quantities));
+    }, [quantities]);
 
     // Save clickedItem to localStorage whenever it changes
     useEffect(() => {
@@ -139,7 +150,9 @@ export const WishlistProvider = ({ children }) => {
         numberOfCartItems,
         numberOfFavorites,
         clickedItem,
-        handleItemClick
+        handleItemClick,
+        quantities,
+        setQuantities
     };
 
     return (
