@@ -163,6 +163,7 @@ function OverView(){
                 </div>
                 <div className="overview-table">
                     <h4>Specifications</h4>
+
                     <table>
                         <tr>
                             <th>SIM Count</th>
@@ -228,3 +229,6 @@ function Recomendations(){
 
 
 export default ItemDetails;
+
+
+//this component is for item's details 🖊️🖊️
