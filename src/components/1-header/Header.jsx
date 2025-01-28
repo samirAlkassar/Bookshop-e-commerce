@@ -7,6 +7,7 @@ import { useWishlistContext } from "../../context/WishlistContext.jsx";
 // hellow this is git hub comment 
 // this is from vs code to github now 😂🧑‍🎤
 //comment to soha
+// from git hub to samir
 export const HoverPopups = [
   // {
   //   title: HomeHover ,
