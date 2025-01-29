@@ -6,6 +6,7 @@ import Avatar from "../../assets/avatar.jpg"
 import Samir from "../../assets/samir.jpeg"
 import { enhancedItems } from "../../constants/items.js";
 import { useWishlistContext } from "../../context/WishlistContext.jsx";
+import {Comments_list} from "../../constants/constants.js"
 
 const ItemDetails = () => {
     const { addToCart, removeFromCart, isInCart ,addToFavorites,removeFromFavorites,isFavorite,clickedItem, quantities, setQuantities } = useWishlistContext();
@@ -90,16 +91,10 @@ function LeftSection({currentItem,toggleFavorite,toggleCart,favorite, incart,han
         <div className="show-item-container">
             <div className="top-wrapper">
                 <div className="side-carasel">
-                    <img src="https://f.nooncdn.com/p/pnsku/N70031501V/45/_/1709822664/ac09b153-6a69-47f5-9b21-842cd119900b.jpg?format=avif&width=240" alt="" />
-                    <img src="https://f.nooncdn.com/p/pnsku/N70031501V/45/_/1703140264/25b68e86-8a8a-476e-a682-786b3703fd85.jpg?format=avif&width=240" alt="" />
-                    <img src="https://f.nooncdn.com/p/pnsku/N70031501V/45/_/1703140261/d00a00b0-7ce9-4bea-a930-b8da1dc264bd.jpg?format=avif&width=240" alt="" />
-                    <img src="https://f.nooncdn.com/p/pnsku/N70031501V/45/_/1703140262/77611501-fdb0-4774-a6cc-2fd572125071.jpg?format=avif&width=240" alt="" />
-                    {/* <img src="https://f.nooncdn.com/p/pnsku/N70031501V/45/_/1703140263/27e4ace9-fa14-4838-978a-23d609ba355c.jpg?format=avif&width=240" alt="" />
-                    <img src="https://f.nooncdn.com/p/pnsku/N70031501V/45/_/1703140261/482c81ff-bf04-4062-9c9b-9a34687d5277.jpg?format=avif&width=240" alt="" />
-                    <img src="https://f.nooncdn.com/p/pnsku/N70031501V/45/_/1703140263/2c39d018-84cc-4dfa-a064-36c8f3e0e80d.jpg?format=avif&width=240" alt="" />
-                    <img src="https://f.nooncdn.com/p/pnsku/N70031501V/45/_/1703140265/79cb13d2-48ec-405c-90f2-cf62b73621bf.jpg?format=avif&width=240" alt="" />
-                    <img src="https://f.nooncdn.com/p/pnsku/N70031501V/45/_/1703140266/24269bbf-30a0-430f-a04d-d04be4737fa1.jpg?format=avif&width=240" alt="" />
-                    <img src="https://f.nooncdn.com/p/pnsku/N70031501V/45/_/1703140267/74a70ced-c724-43d2-9c04-2e427c9f4989.jpg?format=avif&width=240" alt="" /> */}
+                <img src={currentItem.image} alt={currentItem.tilte} />
+                <img src={currentItem.image} alt={currentItem.tilte} />
+                <img src={currentItem.image} alt={currentItem.tilte} />
+                <img src={currentItem.image} alt={currentItem.tilte} />
                 </div>
                 <div className="main-image">
                     <img src={currentItem.image} alt={currentItem.tilte} />
@@ -153,10 +148,10 @@ function MiddleSection({currentItem}){
             </div>
             <p>Color Name: <b>Midnight Black</b></p>
             <div className="color-wrapper">
-                <img src="https://f.nooncdn.com/p/pnsku/N70031501V/45/_/1709822664/ac09b153-6a69-47f5-9b21-842cd119900b.jpg?format=avif&width=240" alt="" />
-                <img src="https://f.nooncdn.com/p/pnsku/N70031501V/45/_/1703140264/25b68e86-8a8a-476e-a682-786b3703fd85.jpg?format=avif&width=240" alt="" />
-                <img src="https://f.nooncdn.com/p/pnsku/N70031501V/45/_/1703140261/d00a00b0-7ce9-4bea-a930-b8da1dc264bd.jpg?format=avif&width=240" alt="" />
-                <img src="https://f.nooncdn.com/p/pnsku/N70031501V/45/_/1703140262/77611501-fdb0-4774-a6cc-2fd572125071.jpg?format=avif&width=240" alt="" />
+            <img src={currentItem.image} alt={currentItem.tilte} />
+            <img src={currentItem.image} alt={currentItem.tilte} />
+            <img src={currentItem.image} alt={currentItem.tilte} />
+            <img src={currentItem.image} alt={currentItem.tilte} />
             </div>
         </div>
     )
@@ -380,13 +375,12 @@ function ProductRating(){
                     </div>
                     <div className="comments-wrapper">
 
-                        <Comment />
-                        <Comment />
-                        <Comment />
-                        <Comment />
-                        <Comment />
-                        <Comment />
-                        <Comment />
+                        {Comments_list.map((comment)=>(
+                            <Comment comment={comment.comment}
+                             userName={comment.userName}
+                              verifiedPerchace={comment.verified_purchase}
+                              profilePic={comment.profile_pic} />
+                        ))}
 
                     </div>
                     <div className="reviews-wrapper">
@@ -404,16 +398,16 @@ function Recomendations(){
 }
 
 
-function Comment(){
+function Comment({comment, userName, verifiedPerchace,profilePic = "https://i.pinimg.com/736x/0f/68/94/0f6894e539589a50809e45833c8bb6c4.jpg"}){
     return(
         <div className="comment-container">
         <div className="image-wrapper">
-            <img width={"100px"} src={Samir} alt="avatar"/>
+            <img width={"100px"} src={profilePic} alt="avatar"/>
         </div>
         <div className="wrapper">
             <div>
                 <div>
-                    <h1 className='userName'>User Name</h1>
+                    <h1 className='userName'>{userName}</h1>
                     <span className='Rating'>
                     <i class="fa-solid fa-sta stared"></i>
                     <i class="fa-solid fa-star stared"></i>
@@ -424,17 +418,11 @@ function Comment(){
                 </div>
                 <div>
                     <p className='Data'>2022-03-25</p>
-                    <span className='Verified'>Verified Purchase ✅</span>
+                    {verifiedPerchace && <span className='Verified'>Verified Purchase ✅</span>}
                 </div>
             </div>
             <div className="comment">
-                <p>Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Voluptatibus nam repellat
-                    optio excepturi nisi autem distinctio ipsa, 
-                    ipsam ab soluta aliquam. Quis illum maiores 
-                    laudantium earum, quaerat ipsum. Deserunt, ipsa. lorem 
-                    this is an example text ,we want to make a comment
-                </p>
+                <p>{comment}</p>
                 <a href="#">More</a>
             </div>
         </div>

@@ -1,0 +1,88 @@
+div.login_form_container{
+    position: fixed;
+    inset: 0;
+    background-color: #0000005a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+div.login-form-container{
+    position: relative;
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 1px 1px 10px #000000a0;
+    width: 60%;
+    overflow: hidden;
+}
+div.login-form-container div.register_img{
+    width: 55%;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:var(--darksubtitle);
+    border-top-left-radius: 40px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 6px;
+    box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.375);
+}
+div.login-form-container img{
+    width: 100%;
+}
+div.login_form_container form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 45%;
+}
+div.login_form_container form h1.header{
+    color: var(--darktitle);
+    opacity: 0.8;
+}
+div.login_form_container form p{
+    color: var(--darksubtitle);
+    margin-bottom: 2rem;
+}
+div.login_form_container form input{
+    padding: 0.7rem 0.4rem;
+    border: none;
+    border: 2px solid var(--subtitle);
+    border-radius: 6px;
+    margin:0.5rem 0;
+    font-size: 0.9rem;
+}
+div.login_form_container form input:focus{
+    outline: none;
+    border: 2px solid #0d7150;
+}
+div.login_form_container form button{
+    background-color: var(--primary);
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 1rem;
+    color: var(--title);
+    font-size: 1.1rem;
+}
+div.login_form_container form button:hover{
+    background-color:brown;
+}
+div.login_form_container form button:active{
+    scale: 0.98;
+}
+
+button.close-loginform-btn{
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    border: none;
+    background-color: transparent;
+    font-size:1.5rem;
+    color: var(--title);
+    cursor: pointer;
+}

@@ -7,6 +7,7 @@ import ItemCard from "../ItemCard/ItemCard.jsx";
 import Filter from "../ui-elements/Filter.jsx"
 import { useWishlistContext } from "../../context/WishlistContext.jsx";
 
+
 const Main = () => {
   const [mainLinktoggle, setMainLinkToggle] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);

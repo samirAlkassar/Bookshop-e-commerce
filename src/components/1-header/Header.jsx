@@ -4,6 +4,7 @@ import "./header.css";
 import {navElements} from "../../constants/constants.js"
 import { Link } from "react-router-dom"
 import { useWishlistContext } from "../../context/WishlistContext.jsx";
+import Login from "../Login/Login.jsx"
 // hellow this is git hub comment 
 // this is from vs code to github now 😂🧑‍🎤
 //comment to soha
@@ -33,20 +34,33 @@ export const HoverPopups = [
 // test 
 
 const Header = () => {
+  const [showLogin, setShowLogin] = useState(false);
   const { numberOfCartItems,numberOfFavorites } = useWishlistContext();
+  const [login, setLogin] = useState(false);
   
   const [menu, setMenu] = useState(false);
   const [activeNavHover, setActiveNavHover] =useState(null); //stores the id of the current hovered naveElement
-const [activeLink, setActiveLink] = useState(() => {
+  const [activeLink, setActiveLink] = useState(() => {
   if (sessionStorage.getItem("sessionkey")) {
-    return localStorage.getItem("activelink") || "Home";
-  } else {
-    sessionStorage.setItem("sessionkey", "true");
-    localStorage.setItem("activelink", "Home");
-    return "Home";
-  }
-});
+      return localStorage.getItem("activelink") || "Home";
+    } else {
+      sessionStorage.setItem("sessionkey", "true");
+      localStorage.setItem("activelink", "Home");
+      return "Home";
+    }
+  });
 
+  const openLoginForm = () => {
+    setShowLogin(true)
+    setLogin(false)
+  }
+  const openRegisterForm = () => {
+    setShowLogin(true)
+    setLogin(true)
+  }
+  const closeLoginForm = () => {
+    setShowLogin(false)
+  }
   const handleActiveLink = (Linkid) =>{
     setActiveLink(Linkid)
     localStorage.setItem("activelink",Linkid)
@@ -70,10 +84,11 @@ const [activeLink, setActiveLink] = useState(() => {
 
   return (
     <header>
+      {showLogin && <Login closeEvent={closeLoginForm} login={login} setLogin={setLogin} />}
       <div className="header-container">
         <div className="login-buttons">
-          <button className="login-btn">Log in</button>
-          <button className="sign-btn">Sign in</button>
+          <button onClick={openLoginForm} className="login-btn">Log in</button>
+          <button onClick={openRegisterForm}className="sign-btn">Sign in</button>
         </div>
 
         <nav className="main-nav">

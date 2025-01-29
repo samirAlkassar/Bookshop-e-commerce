@@ -595,15 +595,21 @@ div.productrating-container div.comment-container{
     padding: 1.5rem 0;
 }
 div.image-wrapper{
-    width: 15%;
-    padding: 0.4rem;
+    width: 60px;
+    height: 60px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0.2rem 1rem;
     display: flex;
     justify-content: center;
+    align-items: center;
+    border: 2px solid var(--subtitle);
 }
 div.image-wrapper img{
-    clip-path: circle(50%);
-    height: 60px;
-    width: 60px;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 div.wrapper{
     display: flex;

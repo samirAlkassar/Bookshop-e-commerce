@@ -210,3 +210,149 @@ export const Special_Offers = [
     }
   ]
   
+
+
+
+
+export const Comments_list = [
+    {
+        "userName": "Samir Elkassar",
+        "email": "samir.alkcar@gmail.com",
+        "comment": "this item is very good i highly recommend it, it is as described and comes in super good quality, been using it for the best week and haven't faced any issues with it just yet, would just say it gets really hot after long periods but i guess that's a problem with most devices, highly recommend it if you think about buying it.",
+        "verified_purchase": true,
+        "profile_pic": "https://i.pinimg.com/736x/6a/65/0a/6a650a727b258752c02a8df6222ac52c.jpg"
+    },
+    {
+        "userName": "John Doe",
+        "email": "john.doe@example.com",
+        "comment": "Excellent product! Works great and easy to use. It could be a little more durable, but overall satisfied.",
+        "verified_purchase": true,
+        "profile_pic": "https://i.pinimg.com/736x/c5/73/8e/c5738e72245084779201b2e31454c6c4.jpg"
+    },
+    {
+        "userName": "Alice Smith",
+        "email": "alice.smith@example.com",
+        "comment": "The product is good, but I wish it had better features for the price. It gets the job done though.",
+        "verified_purchase": false,
+        "profile_pic": "https://i.pinimg.com/736x/df/3a/c1/df3ac121a29f56c20fea5d5711e11dbb.jpg"
+    },
+    {
+        "userName": "Michael Johnson",
+        "email": "michael.johnson@example.com",
+        "comment": "Perfect for everyday use. I use it daily and haven't had any issues. Highly recommend!",
+        "verified_purchase": true,
+        "profile_pic": "https://i.pinimg.com/736x/42/ff/5d/42ff5dc2753cc0c440f8734d3b7644e5.jpg"
+    },
+    {
+        "userName": "Emma Wilson",
+        "email": "emma.wilson@example.com",
+        "comment": "It's an okay product, but I was expecting a bit more. It works fine for now, but there could be improvements.",
+        "verified_purchase": false,
+        "profile_pic": undefined
+    },
+    {
+        "userName": "Chris Martin",
+        "email": "chris.martin@example.com",
+        "comment": "This is an amazing product! Totally worth the price. Will definitely buy again!",
+        "verified_purchase": true,
+        "profile_pic": undefined
+    },
+    {
+        "userName": "Sophia Brown",
+        "email": "sophia.brown@example.com",
+        "comment": "Good value for money, but it could be more durable. Still happy with my purchase overall.",
+        "verified_purchase": true,
+        "profile_pic": "https://i.pinimg.com/736x/2a/0b/22/2a0b2216788c4e596c594d27dfae3139.jpg"
+    },
+    {
+        "userName": "James Davis",
+        "email": "james.davis@example.com",
+        "comment": "Not impressed with the product. It did not work as expected, and I had issues from the start.",
+        "verified_purchase": false,
+        "profile_pic": "https://i.pinimg.com/736x/55/80/5e/55805e4aa3c42e91d39d1e1fd2013e60.jpg"
+    },
+    {
+        "userName": "Isabella Harris",
+        "email": "isabella.harris@example.com",
+        "comment": "Amazing quality! I use it every day, and it works like a charm. Very happy with my purchase.",
+        "verified_purchase": true,
+        "profile_pic": undefined
+    },
+    {
+        "userName": "Ethan White",
+        "email": "ethan.white@example.com",
+        "comment": "I had high expectations, but the product didn't live up to the hype. It's decent, but not exceptional.",
+        "verified_purchase": false,
+        "profile_pic": "https://i.pinimg.com/736x/bd/c1/50/bdc15000ada45164f3975acca59c8559.jpg"
+    },
+    {
+        "userName": "Amelia Clark",
+        "email": "amelia.clark@example.com",
+        "comment": "Great value for the price! Works well, no complaints so far. I would buy it again.",
+        "verified_purchase": true,
+        "profile_pic": "https://i.pinimg.com/736x/ac/09/e9/ac09e91aee0b430542612d9153a434fc.jpg"
+    },
+    {
+        "userName": "Liam Taylor",
+        "email": "liam.taylor@example.com",
+        "comment": "Good product, but could use some improvements. I would recommend it with some reservations.",
+        "verified_purchase": true,
+        "profile_pic": "https://i.pinimg.com/736x/8e/d9/7d/8ed97d56198f486044d3b2e8ff87ab6d.jpg"
+    },
+    {
+        "userName": "Charlotte Lewis",
+        "email": "charlotte.lewis@example.com",
+        "comment": "I really like it! It works well for my needs, though it could be improved in some areas.",
+        "verified_purchase": true,
+        "profile_pic": "https://i.pinimg.com/736x/cf/6e/c4/cf6ec445df41899479978aa16f05c996.jpg"
+    },
+    {
+        "userName": "Benjamin Young",
+        "email": "benjamin.young@example.com",
+        "comment": "Not great. The product has some issues that need to be addressed. I would not recommend it.",
+        "verified_purchase": false,
+        "profile_pic": "https://i.pinimg.com/736x/f7/6c/c5/f76cc594ef8b20314e2eeb595374b926.jpg"
+    },
+    {
+        "userName": "Mason Allen",
+        "email": "mason.allen@example.com",
+        "comment": "This is a solid product, does what it says. Would buy again.",
+        "verified_purchase": true,
+        "profile_pic": "https://i.pinimg.com/736x/34/7a/15/347a15a10ed75222022f2b3fad5f4dc3.jpg"
+    },
+    {
+        "userName": "Harper Scott",
+        "email": "harper.scott@example.com",
+        "comment": "Really good product! Very impressed with its functionality and ease of use. Highly recommend!",
+        "verified_purchase": true,
+        "profile_pic": "https://i.pinimg.com/736x/e9/56/49/e95649cf83a8928b394352373647e2de.jpg"
+    },
+    {
+        "userName": "Alexander King",
+        "email": "alexander.king@example.com",
+        "comment": "Good for the most part, but I found it lacking in certain features. Still, it does the job.",
+        "verified_purchase": false,
+        "profile_pic": undefined
+    },
+    {
+        "userName": "Madison Perez",
+        "email": "madison.perez@example.com",
+        "comment": "I absolutely love it! Best purchase I've made in a while.",
+        "verified_purchase": true,
+        "profile_pic": "https://i.pinimg.com/736x/43/71/0f/43710f32c6fc09258dc246870064ace3.jpg"
+    },
+    {
+        "userName": "Jack Moore",
+        "email": "jack.moore@example.com",
+        "comment": "It works well but gets really hot after some time. It's a minor issue though.",
+        "verified_purchase": true,
+        "profile_pic": "https://i.pinimg.com/736x/47/91/f0/4791f027dcad85f85883359daf191c5d.jpg"
+    },
+    {
+        "userName": "Victoria Lee",
+        "email": "victoria.lee@example.com",
+        "comment": "I had to return this because it was not what I expected. Would not recommend it.",
+        "verified_purchase": false,
+        "profile_pic":undefined 
+    }
+]
