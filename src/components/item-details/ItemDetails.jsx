@@ -11,7 +11,6 @@ import {Comments_list} from "../../constants/constants.js"
 const ItemDetails = () => {
     const { addToCart, removeFromCart, isInCart ,addToFavorites,removeFromFavorites,isFavorite,clickedItem, quantities, setQuantities } = useWishlistContext();
     const currentItem = enhancedItems.find(item => item.id == clickedItem);
-    console.log(currentItem, clickedItem)
     const {id, image, title, description, category, price, rating} = currentItem
     const favorite = isFavorite(id); //return true if in the favorites ,otherwise false
     const incart = isInCart(id); //return true if in the cart ,otherwise false

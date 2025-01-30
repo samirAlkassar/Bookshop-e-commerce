@@ -137,7 +137,6 @@ export const WishlistProvider = ({ children }) => {
     const handleItemClick = (itemID) => {
         setClickedItem(itemID)
     }
-    console.log(clickedItem)
     const value = {
         favorites,
         addToFavorites,

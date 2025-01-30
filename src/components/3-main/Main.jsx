@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState,createContext } from "react";
 import "./main.css";
-import { mainPageLinks } from "../../constants/constants.js";
+// import { mainPageLinks } from "../../constants/constants.js";
 import { enhancedItems } from "../../constants/items.js";
 import ItemCard from "../ItemCard/ItemCard.jsx";
 import Filter from "../ui-elements/Filter.jsx"
 import { useWishlistContext } from "../../context/WishlistContext.jsx";
+import {FetchData} from "../../api/api.js"
+
 
 
 const Main = () => {
@@ -14,11 +16,35 @@ const Main = () => {
   const [selectValue, setSelectValue] = useState("recent");
   const [searchValue, setSearchValue] = useState("");
 
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(()=>{
+    const FetchProducts = async () => {
+      setLoading(true);
+      try{
+        const ProductsData = await FetchData();
+        setData(ProductsData)
+      } catch(err){
+        console.error(err)
+        setError(err)
+      }finally{
+        setLoading(false)
+      }
+    }
+    FetchProducts()
+  },[])
+
+  if (loading) return <p>loading....</p> 
+  if (!data) return <p>data is null</p>
+  if (error) return <p>{error.message}</p> 
+
   // we have total of 100 items, we are at page (1)
   const cardsPerPage = 20; // number of items per page is 20
   const lastIndex = currentPage * cardsPerPage; // last index is currenctPage(1) * cardsPerPage(20) = (20)
   const firstIndex = lastIndex - cardsPerPage; // first index is lastIndxx(20) - cardsPerPage(20) = (0)
-  const Items_patches = enhancedItems.filter(
+  const Items_patches = data.filter(
     (item) =>
       (mainLinktoggle === "All" || item.category === mainLinktoggle) &&
       (item.title.toLowerCase().includes(searchValue.toLowerCase()) ||
@@ -96,7 +122,7 @@ const Main = () => {
     setCurrentPage(1);
     setSearchValue(e.target.value);
   }
-  const { clickedItem,handleItemClick } = useWishlistContext();
+  const {handleItemClick } = useWishlistContext();
   return (
     <main>
       <div className="box-container">
@@ -107,33 +133,38 @@ const Main = () => {
             value={searchValue}
             onChange={(e) => handleInputChange(e)}
           />
-          <button type="submite" className="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+          <button type="submite" className="search-btn"><i className="fa-solid fa-magnifying-glass"></i></button>
         </form>
         <nav className="main-nav">
           <ul>
-            {[...mainPageLinks].reverse().map((links) => (
-              <MainLinks
-                key={links.id}
-                className={
-                  mainLinktoggle === links.title ? "mainlink-toggled" : ""
-                }
-                text={links.title}
-                toggle={() => handelLinkToggle(links.title)}
-                mainLinktoggle={mainLinktoggle}
-              />
-            ))}
+          {!data ? (
+                <p>data is null</p>
+              ) : (
+                ["All",...new Set(data.map(item => item.category))].reverse().map((category, index) => (
+                  <MainLinks
+                    key={index}
+                    className={mainLinktoggle === category ? "mainlink-toggled" : ""}
+                    text={category}
+                    toggle={() => handelLinkToggle(category)}
+                    mainLinktoggle={mainLinktoggle}
+                  />
+                ))
+              )}
           </ul>
         </nav>
 
         <Filter label="Filtered by:" icon="fa-solid fa-arrow-up-short-wide" filter_list={Filter_selections} handelSelection={handelSelection} />
 
         <section className="cards-container">
+        {loading && <p>Loading....</p>}
+        {(!data) && <p>Data is null</p>}
+        {error && <p>{error.message}</p>}
 
-          {records.map((item) =>
+          {!data? <p>data is null</p>: records.map((item) =>
             mainLinktoggle == "All" || mainLinktoggle === item.category ? (
               <ItemCard
                 key={item.id}
-                image={item.image}
+                image={item.thumbnail}
                 id={item.id}
                 title={item.title}
                 description={item.description}
@@ -155,7 +186,7 @@ const Main = () => {
                 currentPage < Pages.length && setCurrentPage(currentPage + 1)
               }
             >
-              <i class="fa-solid fa-chevron-left"></i>
+              <i className="fa-solid fa-chevron-left"></i>
             </li>
             {[...Pages].reverse().map((page, id) => (
               <MainLinks
@@ -170,7 +201,7 @@ const Main = () => {
               className="pageNavigation-btn"
               onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
             >
-              <i class="fa-solid fa-chevron-right"></i>
+              <i className="fa-solid fa-chevron-right"></i>
             </li>
           </ul>
         </nav>

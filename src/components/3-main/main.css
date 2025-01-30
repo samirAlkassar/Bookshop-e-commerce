@@ -43,6 +43,7 @@ main nav.main-nav ul a {
     color: var(--darktitle);
     font-weight: bold;
     text-decoration: none;
+    font-size: 0.5rem;
 }
 
 .mainlink-toggled {

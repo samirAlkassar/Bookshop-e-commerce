@@ -15,10 +15,8 @@ function ItemCard({ image, title, description, category, price, rating, id,handl
   
   const toggleFavorite = () => {
     if (favorite) {
-      console.log("removed from favorite")
       removeFromFavorites(id);
     } else {
-      console.log("added from favorite")
       addToFavorites({
         id,
         image,
@@ -33,10 +31,8 @@ function ItemCard({ image, title, description, category, price, rating, id,handl
 
   const toggleCart = () => {
     if (incart) {
-      console.log("removed from cart")
       removeFromCart(id);
     } else {
-      console.log("added from cart")
       addToCart({
         id,
         image,
