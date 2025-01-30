@@ -10,7 +10,11 @@ import {Comments_list} from "../../constants/constants.js"
 import { useAPIcontext } from "../../context/APIcontext.jsx";
 
 const ItemDetails = () => {
+    const [currectImage, setCurrentImage] = useState(null);
     const {loading, data, error} = useAPIcontext()
+    if (loading) return <p>loading....</p> 
+    if (!data) return <p>data is null</p>
+    if (error) return <p>{error.message}</p> 
     const { addToCart, removeFromCart, isInCart ,addToFavorites,removeFromFavorites,isFavorite,clickedItem, quantities, setQuantities } = useWishlistContext();
     const currentItem = data.find(item => item.id == clickedItem);
     const {id, image, title, description, category, price, rating} = currentItem
@@ -18,10 +22,9 @@ const ItemDetails = () => {
     const incart = isInCart(id); //return true if in the cart ,otherwise false
 
 
-    if (loading) return <p>loading....</p> 
-    if (!data) return <p>data is null</p>
-    if (error) return <p>{error.message}</p> 
-
+    const changeImage=(image) =>{
+        setCurrentImage(image)
+    }
     const handleSelection = (id, value) => {
         setQuantities((prevQuantities) => ({
             ...prevQuantities,
@@ -73,7 +76,7 @@ const ItemDetails = () => {
                 </p>
                 </div>
                 <div className="top-section">
-                    <LeftSection handleSelection={handleSelection} id={id}  quantity={quantities[id] || 1} currentItem={currentItem} favorite={favorite} incart={incart} toggleFavorite={toggleFavorite} toggleCart={toggleCart}/>
+                    <LeftSection currectImage={currectImage} changeImage={changeImage} handleSelection={handleSelection} id={id}  quantity={quantities[id] || 1} currentItem={currentItem} favorite={favorite} incart={incart} toggleFavorite={toggleFavorite} toggleCart={toggleCart}/>
                     <MiddleSection currentItem={currentItem}/>
                     <RightSection />
                 </div>
@@ -92,18 +95,18 @@ const ItemDetails = () => {
 };
 
 
-function LeftSection({currentItem,toggleFavorite,toggleCart,favorite, incart,handleSelection,quantity,id}){
+function LeftSection({currentItem,toggleFavorite,toggleCart,favorite, incart,handleSelection,quantity,id, changeImage, currectImage}){
     return (
         <div className="show-item-container">
             <div className="top-wrapper">
                 <div className="side-carasel">
-                <img src={currentItem.thumbnail} alt={currentItem.tilte} />
-                <img src={currentItem.thumbnail} alt={currentItem.tilte} />
-                <img src={currentItem.thumbnail} alt={currentItem.tilte} />
-                <img src={currentItem.thumbnail} alt={currentItem.tilte} />
+                {([...currentItem.images,...currentItem.images]).map((image)=>(
+                    <img src={image} alt="" onClick={()=>changeImage(image)} />
+                ))}
+
                 </div>
                 <div className="main-image">
-                    <img src={currentItem.thumbnail} alt={currentItem.tilte} />
+                    <img src={currectImage? currectImage : (currentItem.images).length == 1? currentItem.images: currentItem.images[0]} alt={currentItem.tilte} />
                 </div>
             </div>
             <div className="bottom-wrapper">

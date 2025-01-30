@@ -54,6 +54,7 @@ div.show-item-container div.side-carasel img{
     background-color: #fff;
     margin:0.5rem 0;
     border:1px solid var(--subtitle);
+    cursor: pointer;
 }
 
 

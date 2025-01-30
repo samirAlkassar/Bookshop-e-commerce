@@ -40,6 +40,7 @@ const Main = () => {
     Items_patches_filteredby.length / cardsPerPage
   );
   const Pages = [...Array(numberOfPage + 1).keys()].slice(1);
+  
 
   const Filter_selections = [
     { label: "recent", value: "recent" },
@@ -135,8 +136,12 @@ const Main = () => {
               )}
           </ul>
         </nav>
-
-        <Filter label="Filtered by:" icon="fa-solid fa-arrow-up-short-wide" filter_list={Filter_selections} handelSelection={handelSelection} />
+        <div className="filter-Pagination">
+          <nav className="page-nav">
+            <PagePagination currentPage={currentPage} setCurrentPage={setCurrentPage} Pages={Pages} handelPageNumberToggle={handelPageNumberToggle}/>
+          </nav>
+          <Filter label="Filtered by:" icon="fa-solid fa-arrow-up-short-wide" filter_list={Filter_selections} handelSelection={handelSelection} />
+        </div>
 
         <section className="cards-container">
         {loading && <p>Loading....</p>}
@@ -162,45 +167,56 @@ const Main = () => {
         </section>
 
         <nav className="page-nav">
-          <ul>
-            <li
-              className="pageNavigation-btn"
-              onClick={() =>
-                currentPage < Pages.length && setCurrentPage(currentPage + 1)
-              }
-            >
-              <i className="fa-solid fa-chevron-left"></i>
-            </li>
-            {[...Pages].reverse().map((page, id) => (
-              <MainLinks
-                key={id}
-                className={currentPage === page ? "mainlink-toggled" : ""}
-                text={page}
-                toggle={() => handelPageNumberToggle(page)}
-                mainLinktoggle={currentPage}
-              />
-            ))}
-            <li
-              className="pageNavigation-btn"
-              onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
-            >
-              <i className="fa-solid fa-chevron-right"></i>
-            </li>
-          </ul>
+          <PagePagination currentPage={currentPage} setCurrentPage={setCurrentPage} Pages={Pages} handelPageNumberToggle={handelPageNumberToggle} />
         </nav>
       </div>
     </main>
   );
 };
 
-function MainLinks({ text, toggle, className }) {
+function MainLinks({ text, toggle, className, }) {
   return (
-    <li onClick={toggle} className={className}>
-      <a onClick={(e) => e.preventDefault()} href="">
-        {text}
-      </a>
-    </li>
+    <>
+      <li onClick={toggle} className={className}>
+        <a onClick={(e) => e.preventDefault()} href="">
+          {text}
+        </a>
+      </li>
+    </>
   );
+}
+
+function PagePagination({currentPage, setCurrentPage,Pages,handelPageNumberToggle}){
+  return (
+    <ul>
+          <li
+            className="pageNavigation-btn"
+            onClick={() =>
+              currentPage < Pages.length && setCurrentPage(currentPage + 1)
+            }
+          >
+            <i className="fa-solid fa-chevron-left"></i>
+          </li>
+          {Pages.length >= 9 && <MainLinks mainLinktoggle={currentPage} toggle={() => handelPageNumberToggle(Pages.at(-1))} className={currentPage === Pages.at(-1) ? "mainlink-toggled" : ""} text={Pages.at(-1)}/>}
+          {Pages.length >= 9 && <MainLinks text="..."/>}
+          {[...Pages].reverse().map((page, id) => (
+            page < 9 && <MainLinks
+              key={id}
+              className={currentPage === page ? "mainlink-toggled" : ""}
+              text={page}
+              toggle={() => handelPageNumberToggle(page)}
+              mainLinktoggle={currentPage}
+            />
+            ))}
+            
+          <li
+            className="pageNavigation-btn"
+            onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
+          >
+            <i className="fa-solid fa-chevron-right"></i>
+          </li>
+        </ul>
+    )
 }
 
 export default Main;

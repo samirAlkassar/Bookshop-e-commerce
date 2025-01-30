@@ -21,12 +21,25 @@ export const WishlistProvider = ({ children }) => {
     const [clickedItem, setClickedItem] = useState(() => {
         try {
             const storedClickedItem = localStorage.getItem("itemkey");
-            return storedClickedItem ? JSON.parse(storedClickedItem) : null; // Parse and return as number
+            return storedClickedItem ? JSON.parse(storedClickedItem) : null;
         } catch (error) {
             console.error("Error reading from localStorage", error);
             return null;
         }
     });
+    
+    // Update localStorage whenever clickedItem changes
+    useEffect(() => {
+        try {
+            if (clickedItem !== null) {
+                localStorage.setItem("itemkey", JSON.stringify(clickedItem));
+            }
+        } catch (error) {
+            console.error("Error writing to localStorage", error);
+        }
+    }, [clickedItem]);
+    console.log(localStorage.getItem("itemkey"));
+
     const [quantities, setQuantities] = useState(() => {
         const savedQuantities = localStorage.getItem('quantities');
         return savedQuantities ? JSON.parse(savedQuantities) : cartList.reduce((acc, item) => {
