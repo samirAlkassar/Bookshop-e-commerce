@@ -7,13 +7,20 @@ import Samir from "../../assets/samir.jpeg"
 import { enhancedItems } from "../../constants/items.js";
 import { useWishlistContext } from "../../context/WishlistContext.jsx";
 import {Comments_list} from "../../constants/constants.js"
+import { useAPIcontext } from "../../context/APIcontext.jsx";
 
 const ItemDetails = () => {
+    const {loading, data, error} = useAPIcontext()
     const { addToCart, removeFromCart, isInCart ,addToFavorites,removeFromFavorites,isFavorite,clickedItem, quantities, setQuantities } = useWishlistContext();
-    const currentItem = enhancedItems.find(item => item.id == clickedItem);
+    const currentItem = data.find(item => item.id == clickedItem);
     const {id, image, title, description, category, price, rating} = currentItem
     const favorite = isFavorite(id); //return true if in the favorites ,otherwise false
     const incart = isInCart(id); //return true if in the cart ,otherwise false
+
+
+    if (loading) return <p>loading....</p> 
+    if (!data) return <p>data is null</p>
+    if (error) return <p>{error.message}</p> 
 
     const handleSelection = (id, value) => {
         setQuantities((prevQuantities) => ({
@@ -90,13 +97,13 @@ function LeftSection({currentItem,toggleFavorite,toggleCart,favorite, incart,han
         <div className="show-item-container">
             <div className="top-wrapper">
                 <div className="side-carasel">
-                <img src={currentItem.image} alt={currentItem.tilte} />
-                <img src={currentItem.image} alt={currentItem.tilte} />
-                <img src={currentItem.image} alt={currentItem.tilte} />
-                <img src={currentItem.image} alt={currentItem.tilte} />
+                <img src={currentItem.thumbnail} alt={currentItem.tilte} />
+                <img src={currentItem.thumbnail} alt={currentItem.tilte} />
+                <img src={currentItem.thumbnail} alt={currentItem.tilte} />
+                <img src={currentItem.thumbnail} alt={currentItem.tilte} />
                 </div>
                 <div className="main-image">
-                    <img src={currentItem.image} alt={currentItem.tilte} />
+                    <img src={currentItem.thumbnail} alt={currentItem.tilte} />
                 </div>
             </div>
             <div className="bottom-wrapper">
@@ -147,10 +154,10 @@ function MiddleSection({currentItem}){
             </div>
             <p>Color Name: <b>Midnight Black</b></p>
             <div className="color-wrapper">
-            <img src={currentItem.image} alt={currentItem.tilte} />
-            <img src={currentItem.image} alt={currentItem.tilte} />
-            <img src={currentItem.image} alt={currentItem.tilte} />
-            <img src={currentItem.image} alt={currentItem.tilte} />
+            <img src={currentItem.thumbnail} alt={currentItem.tilte} />
+            <img src={currentItem.thumbnail} alt={currentItem.tilte} />
+            <img src={currentItem.thumbnail} alt={currentItem.tilte} />
+            <img src={currentItem.thumbnail} alt={currentItem.tilte} />
             </div>
         </div>
     )

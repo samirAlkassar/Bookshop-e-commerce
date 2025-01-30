@@ -6,7 +6,8 @@ import { enhancedItems } from "../../constants/items.js";
 import ItemCard from "../ItemCard/ItemCard.jsx";
 import Filter from "../ui-elements/Filter.jsx"
 import { useWishlistContext } from "../../context/WishlistContext.jsx";
-import {FetchData} from "../../api/api.js"
+import { useAPIcontext } from "../../context/APIcontext.jsx";
+
 
 
 
@@ -16,25 +17,7 @@ const Main = () => {
   const [selectValue, setSelectValue] = useState("recent");
   const [searchValue, setSearchValue] = useState("");
 
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  useEffect(()=>{
-    const FetchProducts = async () => {
-      setLoading(true);
-      try{
-        const ProductsData = await FetchData();
-        setData(ProductsData)
-      } catch(err){
-        console.error(err)
-        setError(err)
-      }finally{
-        setLoading(false)
-      }
-    }
-    FetchProducts()
-  },[])
+  const {loading, data, error} = useAPIcontext()
 
   if (loading) return <p>loading....</p> 
   if (!data) return <p>data is null</p>
