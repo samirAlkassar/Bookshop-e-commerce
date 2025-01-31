@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './itemDetails.css'; // Import the CSS
 import {Link, useAsyncError} from "react-router-dom"
 import Filter from "../ui-elements/Filter"
@@ -10,7 +10,7 @@ import {Comments_list} from "../../constants/constants.js"
 import { useAPIcontext } from "../../context/APIcontext.jsx";
 
 const ItemDetails = () => {
-    const [currectImage, setCurrentImage] = useState(null);
+    
     const {loading, data, error} = useAPIcontext()
     if (loading) return <p>loading....</p> 
     if (!data) return <p>data is null</p>
@@ -20,7 +20,10 @@ const ItemDetails = () => {
     const {id, image, title, description, category, price, rating} = currentItem
     const favorite = isFavorite(id); //return true if in the favorites ,otherwise false
     const incart = isInCart(id); //return true if in the cart ,otherwise false
-
+    const [currectImage, setCurrentImage] = useState(null);
+    useEffect(()=>{
+        setCurrentImage((currentItem.images).length == 1? currentItem.images: currentItem.images[0])
+    },[])
 
     const changeImage=(image) =>{
         setCurrentImage(image)
@@ -96,17 +99,35 @@ const ItemDetails = () => {
 
 
 function LeftSection({currentItem,toggleFavorite,toggleCart,favorite, incart,handleSelection,quantity,id, changeImage, currectImage}){
+    const [moving, setMoving] = useState(20);
+
+    const handleMovingUp = () => {
+        setMoving(moving - 150)
+        console.log(moving)
+    }
+    const handleMovingDown = () => {
+        if (moving >= 20){
+            setMoving(20)
+        } else {
+            setMoving(moving + 150)
+        }
+    }
     return (
         <div className="show-item-container">
             <div className="top-wrapper">
                 <div className="side-carasel">
-                {([...currentItem.images,...currentItem.images]).map((image)=>(
-                    <img src={image} alt="" onClick={()=>changeImage(image)} />
-                ))}
+
+                    <button onClick={handleMovingDown} className='up-btn'><i id='arrowButton' className="fa-solid fa-chevron-up"></i></button>
+                    <div className='moving-images' style={{top:`${moving}px`,bottom:`${moving}px`}}>
+                        {(currentItem.images).map((image)=>(
+                            <img className={currectImage == image && "image-selected"} src={image} alt="" onClick={()=>changeImage(image)} />
+                        ))}
+                    </div>
+                    <button onClick={handleMovingUp} className='down-btn'><i id='arrowButton' className="fa-solid fa-chevron-down"></i></button>
 
                 </div>
                 <div className="main-image">
-                    <img src={currectImage? currectImage : (currentItem.images).length == 1? currentItem.images: currentItem.images[0]} alt={currentItem.tilte} />
+                    <img src={currectImage } alt={currentItem.tilte} />
                 </div>
             </div>
             <div className="bottom-wrapper">

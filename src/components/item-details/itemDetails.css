@@ -47,6 +47,12 @@ div.show-item-container div.side-carasel{
     flex-direction: column;
     width: 20%;
     height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+div.show-item-container div.side-carasel div.moving-images{
+    position: absolute;
+    transition: all 0.3s ease;
 }
 div.show-item-container div.side-carasel img{
     width: 100%;
@@ -56,6 +62,38 @@ div.show-item-container div.side-carasel img{
     border:1px solid var(--subtitle);
     cursor: pointer;
 }
+
+div.show-item-container div.side-carasel button.up-btn,
+div.show-item-container div.side-carasel button.down-btn {
+    position: absolute;
+    border: none;
+    background-color: rgba(128, 128, 128, 0.189);
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    padding: 0.3rem;
+    z-index: 20;
+}
+div.show-item-container div.side-carasel button.up-btn{
+    top: 0;
+}
+div.show-item-container div.side-carasel button.down-btn{
+    bottom: 0;
+}
+
+div.show-item-container div.side-carasel button.up-btn:hover,
+div.show-item-container div.side-carasel button.down-btn:hover {
+    background-color: rgba(128, 128, 128, 0.332);
+}
+
+#arrowButton{
+    color: var(--darktitle);
+}
+.image-selected {
+    border: 1px solid var(--darktitle) !important;
+}
+
+
 
 
 
